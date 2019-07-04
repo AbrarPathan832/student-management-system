@@ -18,6 +18,8 @@ table, th, td {
 <hr>
 <br>
  <body bgcolor="white">
+ <div background="red"> ${errorMsg} </div>
+ <div background="green"> ${deleteMsg} </div>
     <table>
       <TH>Name</th>
       <TH>Address</TH>
@@ -26,6 +28,8 @@ table, th, td {
       <TH>Percentage</TH>
       <TH>Email</TH>
        <TH>User Name</TH>
+       <TH>Update</TH>
+       <TH>Delete</TH>
       <c:forEach items="${listOfStudents}" var="student">
         <tr>
           <td><c:out value="${student.fullName}" /></td>
@@ -35,6 +39,8 @@ table, th, td {
           <td><c:out value="${student.percentage}" /></td>
           <td><c:out value="${student.email}"/></td>
           <td><c:out value="${student.username}"/></td>
+          <td><a href="update?id=${student.id}">Update</a></td>
+          <td><a href="delete?id=${student.id}">Delete</a></td>
         </tr>
       </c:forEach>
     </table>

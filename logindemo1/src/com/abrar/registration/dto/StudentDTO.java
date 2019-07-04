@@ -1,22 +1,41 @@
-package com.abrar.registartion.dto;
+package com.abrar.registration.dto;
 
 import java.util.List;
-
-import com.abrar.registration.dto.Student;
 
 public class StudentDTO 
 {
 	private boolean isUserAvailable;
 	private List<Student> listOfStudents;
 	
+	private boolean isDeleted;
+	
 	private String userName;
 	/**
 	 * 
 	 */
+	
 	public StudentDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	/**
+	 * @return the isDeleted
+	 */
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+
+
+	/**
+	 * @param isDeleted the isDeleted to set
+	 */
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+
 	/**
 	 * @param isUserAvailable
 	 * @param listOfStudents

@@ -10,7 +10,25 @@ public class Student
 	private String email;
 	private String username;
 	private String password;
+	private String id;
+	private boolean flag;
 	
+	public String getId() {
+		return id;
+	}
+
+	public boolean isFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public Student() {
     }
  
@@ -19,16 +37,9 @@ public class Student
     }
  
     
-	/**
-	 * @param fullName
-	 * @param address
-	 * @param age
-	 * @param qualification
-	 * @param percentage
-	 * @param email
-	 */
-	public Student(String fullName, String address, String age, String qualification, String percentage,
-			String email,String username,String password) {
+
+	public Student(String fullName, String address, String age, String qualification, String percentage, String email,
+			String username, String password, String id) {
 		super();
 		this.fullName = fullName;
 		this.address = address;
@@ -38,6 +49,7 @@ public class Student
 		this.email = email;
 		this.username = username;
 		this.password = password;
+		this.id = id;
 	}
 
 	public String getFullName() {

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.abrar.registration.dto.Student;
+import com.abrar.registration.dto.StudentDTO;
 import com.abrar.registration.service.RegistrationService;
 
 public class RegistrationController extends HttpServlet
@@ -21,10 +22,13 @@ public class RegistrationController extends HttpServlet
 	
 	RegistrationService registrationService = new RegistrationService();
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException 
 	{
 	response.setContentType("text/html");
 	Student s = new Student();
+	
+	String id = request.getParameter("id");
 	String name = request.getParameter("fullname");
 	String address = request.getParameter("address");
 	String age = request.getParameter("age");
@@ -33,6 +37,10 @@ public class RegistrationController extends HttpServlet
 	String email = request.getParameter("emailid");
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
+	String flag = request.getParameter("flag"); 
+	boolean update = Boolean.valueOf(flag);
+	s.setId(id);
+	s.setFlag(update);
 	s.setFullName(name);
 	s.setAddress(address);
 	s.setAge(age);
@@ -41,6 +49,7 @@ public class RegistrationController extends HttpServlet
 	s.setEmail(email);
 	s.setUsername(username);
 	s.setPassword(password);
+	
 	
 	try {
 		boolean isRegistered = registrationService.register(s);
@@ -54,12 +63,7 @@ public class RegistrationController extends HttpServlet
 	RequestDispatcher rd = request.getRequestDispatcher("\\WEB-INF\\Login.jsp");
 	rd.forward(request, response);
 	
-	
-	//RequestDispatcher r = req.getRequestDispatcher("LoginPage.jsp");
-	//System.out.println("loginErrorMessage::: "+ loginErrorMessage);
-	//req.setAttribute("loginErrorMessage", loginErrorMessage);
-	//r.forward(req, res);
-	
-	//response.sendRedirect("");
+	 
+
 }
 }

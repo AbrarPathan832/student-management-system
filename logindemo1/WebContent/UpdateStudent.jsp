@@ -63,15 +63,26 @@ form td {
 label.error {
   display: inline;
 }
-  
+
+form input.readonly {
+	background: grey;
+}
   
   </style>
+  <script>
+function myColor() {
+document.getElementById("password").style.color = "grey";
+
+}
+</script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body> 
 	<form action="registration" method ="post" id="registrationFormId">
-	<!--  <input type="hidden" name="id" value="${id}">  -->
+	  <input type="hidden" name="password" value="${student.password}"> 
+	  <input type="hidden" name="flag" value="true">
+	   <input type="hidden" name="id" value="${student.id}">  
 		<table
 			style="background: yellow; margin-left: 20px; margin-left: 20px;">
 			<tr>
@@ -79,39 +90,36 @@ label.error {
 			</tr>
 			<tr>
 				<td> <label for="fullname">Full Name:</label></td>
-				<td><input type="text" name="fullname" id="fullnameId"></td>
+				<td><input type="text" value="${student.fullName} " name="fullname" id="fullnameId"></td>
 			</tr>
 			<tr>
 				<td> <label for="address">Address :</label></td>
-				<td><input type="text" name="address" id="addressId"></td>
+				<td><input type="text" value="${student.address}" name="address" id="addressId"></td>
 			</tr>
 			<tr>
 				<td> <label for="age"> Age :</label></td>
-				<td><input type="text" name="age" id="ageId"></td>
+				<td><input type="text" value="${student.age}"  name="age" id="ageId"></td>
 			</tr>
 			<tr>
 				<td><label for="qualification">Qualification :</label></td>
-				<td><input type="text" name="qualification" id="QualificationId"></td>
+				<td><input type="text" value="${student.qualification}"  name="qualification" id="QualificationId"></td>
 			
 			</tr>
 			<tr>
 				<td><label for="percentage">Percentage :</label></td>
-				<td><input type="text" name="percentage" id="PercentageId"></td>
+				<td><input type="text" value="${student.percentage}" name="percentage" id="PercentageId"></td>
 			</tr>
 			<tr>
 				<td><label for="emailid">EmailId :</label></td>
-				<td><input type="text" name="emailid" id="EmailId"></td>
+				<td><input type="text"  value="${student.email}" name="emailid" id="EmailId"></td>
 			</tr>
 			<tr>
 				<td><label for="username">Username :</label></td>
-				<td><input type="text" name="username" id="UsernameId"></td>
+				<td><input type="text" readonly="readonly" value="${student.username}" name="username" id="UsernameId"></td>
 			</tr>
+			
 			<tr>
-				<td><label for="password">Password :</label></td>
-				<td><input type="password" name="password" id="PasswordId"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="REGISTER"></td>
+				<td><input type="submit" value="Update"></td>
 				<td><input type="button" onclick="back()" value="Back"></td>
 				<td></td>
 			</tr>
